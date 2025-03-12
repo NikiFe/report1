@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR METRO Government Survey Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-text" data-en="Loading Survey Data" data-cs="Načítání dat průzkumu">Loading Survey Data</div>
+        <div class="progress-bar"><div class="progress"></div></div>
+    </div>
+    
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="cs">Česky</button>
+    </div>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="title" data-en="FOR METRO Government" data-cs="Vláda FOR METRO">FOR METRO Government</h1>
+            <h2 class="subtitle" data-en="Comprehensive Survey Analysis" data-cs="Komplexní analýza průzkumu">Comprehensive Survey Analysis</h2>
+            <div class="date">March 12, 2025</div>
+        </div>
+        <div class="scroll-indicator">
+            <span data-en="Scroll to Explore" data-cs="Posuňte pro prozkoumání">Scroll to Explore</span>
+            <div class="arrow"></div>
+        </div>
+    </header>
+    
+    <section class="overview">
+        <h2 data-en="Survey Overview" data-cs="Přehled průzkumu">Survey Overview</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <div class="card-title" data-en="Respondents" data-cs="Respondenti">Respondents</div>
+                <div class="card-value" data-value="4">0</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">⭐</div>
+                <div class="card-title" data-en="Avg. Satisfaction" data-cs="Průměrná spokojenost">Avg. Satisfaction</div>
+                <div class="card-value" data-value="3">0</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <div class="card-title" data-en="Data Points" data-cs="Datové body">Data Points</div>
+                <div class="card-value" data-value="65">0</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="demographics">
+        <h2 data-en="Response Demographics" data-cs="Demografické údaje respondentů">Response Demographics</h2>
+        <div class="chart-container">
+            <canvas id="demographicsChart"></canvas>
+        </div>
+        <div class="demographics-details">
+            <div class="detail">
+                <h3 data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</h3>
+                <p data-en="3 respondents identified as coalition members" data-cs="3 respondenti se identifikovali jako členové koalice">3 respondents identified as coalition members</p>
+            </div>
+            <div class="detail">
+                <h3 data-en="Other Players" data-cs="Ostatní hráči">Other Players</h3>
+                <p data-en="1 respondent identified as non-coalition" data-cs="1 respondent se identifikoval jako nečlen koalice">1 respondent identified as non-coalition</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="satisfaction">
+        <h2 data-en="Government Satisfaction Analysis" data-cs="Analýza spokojenosti s vládou">Government Satisfaction Analysis</h2>
+        <div class="chart-container large">
+            <canvas id="satisfactionChart"></canvas>
+        </div>
+        <div class="satisfaction-comparison">
+            <div class="comparison-item">
+                <h3 data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</h3>
+                <div class="rating">
+                    <span class="rating-value">3.67</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 73.4%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-item">
+                <h3 data-en="Other Players" data-cs="Ostatní hráči">Other Players</h3>
+                <div class="rating">
+                    <span class="rating-value">1.0</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 20%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="policy-areas">
+        <h2 data-en="Policy Area Satisfaction" data-cs="Spokojenost s oblastmi politiky">Policy Area Satisfaction</h2>
+        <div class="table-container">
+            <table class="policy-table">
+                <thead>
+                    <tr>
+                        <th data-en="Policy Area" data-cs="Oblast politiky">Policy Area</th>
+                        <th data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</th>
+                        <th data-en="Other Players" data-cs="Ostatní hráči">Other Players</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-en="Economy" data-cs="Ekonomika">Economy</td>
+                        <td class="positive" data-en="Agree" data-cs="Souhlasím">Agree</td>
+                        <td class="negative" data-en="Disagree" data-cs="Nesouhlasím">Disagree</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Transportation" data-cs="Doprava">Transportation</td>
+                        <td class="positive" data-en="Strongly Agree" data-cs="Silně souhlasím">Strongly Agree</td>
+                        <td class="negative" data-en="Strongly Disagree" data-cs="Silně nesouhlasím">Strongly Disagree</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Campaign" data-cs="Kampaň">Campaign</td>
+                        <td class="positive" data-en="Agree" data-cs="Souhlasím">Agree</td>
+                        <td class="negative" data-en="Strongly Disagree" data-cs="Silně nesouhlasím">Strongly Disagree</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Proposals" data-cs="Návrhy">Proposals</td>
+                        <td class="positive" data-en="Agree" data-cs="Souhlasím">Agree</td>
+                        <td class="negative" data-en="Strongly Disagree" data-cs="Silně nesouhlasím">Strongly Disagree</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <section class="feedback">
+        <h2 data-en="Qualitative Feedback" data-cs="Kvalitativní zpětná vazba">Qualitative Feedback</h2>
+        <div class="feedback-columns">
+            <div class="feedback-column for-metro">
+                <h3 data-en="FOR METRO Members' Perspective" data-cs="Perspektiva členů FOR METRO">FOR METRO Members' Perspective</h3>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Excellent government, everyone is satisfied&quot;" data-cs="&quot;Je to parádní, všichni jsou spokojeni&quot;">"Excellent government, everyone is satisfied"</div>
+                </div>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Important measures for good living&quot;" data-cs="&quot;Dělají se důležitá opatření na dobré živobytí&quot;">"Important measures for good living"</div>
+                </div>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Very active server with high political engagement&quot;" data-cs="&quot;Server je velice aktivní, hodně hráčů se angažuje v politice&quot;">"Very active server with high political engagement"</div>
+                </div>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Gut&quot;" data-cs="&quot;Gut&quot;">"Gut"</div>
+                </div>
+            </div>
+            <div class="feedback-column other">
+                <h3 data-en="Non-FOR METRO Perspective" data-cs="Perspektiva nečlenů FOR METRO">Non-FOR METRO Perspective</h3>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Conservative populism with aggressive rhetoric toward opposition&quot;" data-cs="&quot;Tato vláda staví své konání na principech konzervativního populismu. Rétorika je agresivní vůči opozici&quot;">"Conservative populism with aggressive rhetoric toward opposition"</div>
+                </div>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Discrimination against LGBTQ+ community&quot;" data-cs="&quot;Svou rétorikou diskriminuje LGBTQ+ menšinu na serveru&quot;">"Discrimination against LGBTQ+ community"</div>
+                </div>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Economic decisions not supported by expert analysis&quot;" data-cs="&quot;Přijímá špatná rozhodnutí v oblasti ekonomiky, která nejsou podložena odbornými analýzami&quot;">"Economic decisions not supported by expert analysis"</div>
+                </div>
+                <div class="feedback-item">
+                    <div class="quote" data-en="&quot;Metro development not progressing as promised&quot;" data-cs="&quot;Rozvoj metra neprobíhá v takovém měřítku, jak bylo slibováno&quot;">"Metro development not progressing as promised"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="concerns">
+        <h2 data-en="Areas of Concern" data-cs="Problematické oblasti">Areas of Concern</h2>
+        <div class="concerns-container">
+            <div class="concern-item">
+                <div class="concern-icon">💬</div>
+                <div class="concern-text" data-en="Better communication with experts and opposition" data-cs="Lepší komunikace s experty a opozicí">Better communication with experts and opposition</div>
+            </div>
+            <div class="concern-item">
+                <div class="concern-icon">🧠</div>
+                <div class="concern-text" data-en="Less idealism in governance" data-cs="Méně idealismu ve vládnutí">Less idealism in governance</div>
+            </div>
+            <div class="concern-item">
+                <div class="concern-icon">🌈</div>
+                <div class="concern-text" data-en="More progressive values" data-cs="Více progresivních hodnot">More progressive values</div>
+            </div>
+            <div class="concern-item">
+                <div class="concern-icon">📊</div>
+                <div class="concern-text" data-en="Evidence-based decision-making" data-cs="Rozhodování založené na důkazech">Evidence-based decision-making</div>
+            </div>
+            <div class="concern-item">
+                <div class="concern-icon">⚖️</div>
+                <div class="concern-text" data-en="Prevention of court corruption" data-cs="Prevence korupce soudů">Prevention of court corruption</div>
+            </div>
+            <div class="concern-item">
+                <div class="concern-icon">🛡️</div>
+                <div class="concern-text" data-en="Avoiding system abuse for political gain" data-cs="Zamezení zneužívání systému pro politický zisk">Avoiding system abuse for political gain</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="debate">
+        <h2 data-en="Debate Interest" data-cs="Zájem o debatu">Debate Interest</h2>
+        <div class="debate-topics">
+            <div class="topic for-metro">
+                <h3 data-en="FOR METRO" data-cs="FOR METRO">FOR METRO</h3>
+                <ul>
+                    <li data-en="Metro construction" data-cs="Stavba metra">Metro construction</li>
+                    <li data-en="Justice system" data-cs="Justiční systém">Justice system</li>
+                    <li data-en="New players" data-cs="Noví hráči">New players</li>
+                </ul>
+            </div>
+            <div class="topic other">
+                <h3 data-en="Non-FOR METRO" data-cs="Nečlenové FOR METRO">Non-FOR METRO</h3>
+                <ul>
+                    <li data-en="LGBTQ+ issues" data-cs="LGBTQ+ problematika">LGBTQ+ issues</li>
+                    <li data-en="Government economic policies" data-cs="Vládní ekonomická politika">Government economic policies</li>
+                    <li data-en="Transportation policies" data-cs="Dopravní politika">Transportation policies</li>
+                    <li data-en="Corruption" data-cs="Korupce">Corruption</li>
+                    <li data-en="Court functioning" data-cs="Fungování soudů">Court functioning</li>
+                    <li data-en="Freedom and rights" data-cs="Svoboda a práva">Freedom and rights</li>
+                    <li data-en="Regional governance" data-cs="Regionální správa">Regional governance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="conclusion">
+        <h2 data-en="Conclusion" data-cs="Závěr">Conclusion</h2>
+        <p data-en="The survey reveals a significant divide in perceptions of the FOR METRO government. While coalition members express high satisfaction across all metrics, the non-coalition respondent has substantial concerns about governance style, policy decisions, and potential rights restrictions. This suggests the need for improved dialogue between government and opposition to address these divergent viewpoints." data-cs="Průzkum odhaluje významný rozdíl ve vnímání vlády FOR METRO. Zatímco členové koalice vyjadřují vysokou spokojenost ve všech metrikách, respondent mimo koalici má značné obavy ohledně stylu vládnutí, politických rozhodnutí a potenciálních omezení práv. To naznačuje potřebu zlepšeného dialogu mezi vládou a opozicí k řešení těchto rozdílných pohledů.">The survey reveals a significant divide in perceptions of the FOR METRO government. While coalition members express high satisfaction across all metrics, the non-coalition respondent has substantial concerns about governance style, policy decisions, and potential rights restrictions. This suggests the need for improved dialogue between government and opposition to address these divergent viewpoints.</p>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <p data-en="Survey conducted on March 12, 2025" data-cs="Průzkum proveden 12. března 2025">Survey conducted on March 12, 2025</p>
+            <p data-en="Report generated by NZS/NNN Analytics" data-cs="Zpráva vygenerována NZS/NNN Analytics">Report generated by NZS/NNN Analytics</p>
+            <p data-en="Generated on: Wednesday, March 12, 2025, 5:06 PM CET" data-cs="Vygenerováno: Středa, 12. března 2025, 17:06 CET">Generated on: Wednesday, March 12, 2025, 5:06 PM CET</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
