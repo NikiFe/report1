@@ -3,8 +3,55 @@ document.addEventListener('DOMContentLoaded', function () {
   try { autoDetectLanguage(); } catch(e) {}
   try { initSectionReveal(); } catch(e) {}
   try { ensureReduceMotionClass(); } catch(e) {}
+  try { patchScrollingForMotionPref(); } catch(e) {}
 });
 
+/* Determine the correct scroll behavior based on user/OS preference */
+function getScrollBehavior(){
+  var reduced = false;
+  try {
+    if (document.documentElement.classList.contains('reduce-motion')) reduced = true;
+    else if (matchMedia('(prefers-reduced-motion: reduce)').matches) reduced = true;
+    else {
+      var stored = localStorage.getItem('prefersMotion');
+      if (stored !== null) reduced = (stored === 'false');
+    }
+  } catch(e) {}
+  return reduced ? 'auto' : 'smooth';
+}
+
+/* Replace hardcoded smooth scrolling in Back-to-top and shortcuts */
+function patchScrollingForMotionPref(){
+  // Back-to-top
+  var back = document.getElementById('backToTop');
+  if (back) {
+    back.removeEventListener && back.removeEventListener('_rm_scroll', back._rm_scroll_handler || function(){});
+    back._rm_scroll_handler = function(ev){
+      ev.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: getScrollBehavior() });
+    };
+    back.addEventListener('click', back._rm_scroll_handler);
+  }
+  // Number-key / shortcut navigation
+  if (typeof initShortcuts === 'function' && !patchScrollingForMotionPref._wrapped) {
+    var _orig = initShortcuts;
+    initShortcuts = function(){
+      _orig();
+      document.querySelectorAll('[data-jump]').forEach(function(el){
+        el._rm_scroll_handler = function(e){
+          var id = this.getAttribute('href') || this.dataset.jump;
+          if (!id) return;
+          var t = document.querySelector(id);
+          if (!t) return;
+          e.preventDefault();
+          t.scrollIntoView({ behavior: getScrollBehavior(), block: 'start', inline: 'nearest' });
+        };
+        el.addEventListener('click', el._rm_scroll_handler);
+      });
+    };
+    patchScrollingForMotionPref._wrapped = true;
+  }
+}
 /* Auto-detect browser language on first visit (en/cs/de) */
 function autoDetectLanguage(){
   var saved = null;
@@ -124,6 +171,53 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+/* Motion-safe programmatic scrolling: honor Reduce Motion for all calls */
+(function installMotionSafeScrolling(){
+  function prefersReducedMotionActive(){
+    try{
+      if (document.documentElement.classList.contains('reduce-motion')) return true;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
+      var stored = localStorage.getItem('prefersMotion');
+      if (stored !== null) return (stored === 'false');
+    }catch(e){}
+    return false;
+  }
+
+  var _origScrollTo = window.scrollTo.bind(window);
+  window.scrollTo = function(a, b){
+    if (typeof a === 'object' && a){
+      var opts = Object.assign({}, a);
+      if (prefersReducedMotionActive()) opts.behavior = 'auto';
+      return _origScrollTo(opts);
+    }
+    if (typeof a === 'number' || typeof b === 'number'){
+      if (prefersReducedMotionActive()){
+        return _origScrollTo({
+          top: (typeof a === 'number' ? a : 0),
+          left: (typeof b === 'number' ? b : 0),
+          behavior: 'auto'
+        });
+      }
+    }
+    return _origScrollTo(a, b);
+  };
+
+  var _origScrollIntoView = Element.prototype.scrollIntoView;
+  Element.prototype.scrollIntoView = function(arg){
+    if (arg && typeof arg === 'object'){
+      var opts = Object.assign({}, arg);
+      if (prefersReducedMotionActive()) opts.behavior = 'auto';
+      return _origScrollIntoView.call(this, opts);
+    }
+    if (arg === undefined || typeof arg === 'boolean'){
+      if (prefersReducedMotionActive()){
+        return _origScrollIntoView.call(this, { behavior: 'auto', block: 'start', inline: 'nearest' });
+      }
+    }
+    return _origScrollIntoView.call(this, arg);
+  };
+})();
 (function(){
   const $ = (s, r=document)=>r.querySelector(s);
   const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
@@ -160,11 +254,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const motionBtn = $('#motionToggle');
     setPressed(motionBtn, state.motion);
     updateMotionLabel(motionBtn);
+    document.documentElement.classList.toggle('reduce-motion', !state.motion);
     if(motionBtn) motionBtn.addEventListener('click', ()=>{
       state.motion=!state.motion;
       localStorage.setItem('prefersMotion', String(state.motion));
       setPressed(motionBtn, state.motion);
       updateMotionLabel(motionBtn);
+      document.documentElement.classList.toggle('reduce-motion', !state.motion);
       announce(tr('Animations updated'));
     });
 

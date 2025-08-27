@@ -86,12 +86,13 @@ section.revealed > h2::after{ transform: scaleX(1); }
 .high-contrast .badge.negative { color: #ff4444; }
 
 /* Reduced motion: disable transitions/animations site-wide and avoid smooth scroll */
+.reduce-motion{scroll-behavior:auto;}
 .reduce-motion *,
 .reduce-motion *::before,
-.reduce-motion *::after {
-  animation: none !important;
-  transition: none !important;
-  scroll-behavior: auto !important;
+.reduce-motion *::after{
+  animation:none;
+  transition:none;
+  scroll-behavior:auto;
 }
 
 /* Chart text is always readable against backgrounds */
@@ -147,7 +148,7 @@ section.revealed > h2::after{ transform: scaleX(1); }
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-html{scroll-behavior:smooth}
+html:not(.reduce-motion){scroll-behavior:smooth}
 body{
   margin:0; background:var(--bg); color:var(--text); font-family:var(--font); line-height:1.6;
 }
@@ -160,15 +161,17 @@ a{color:#9bb8ff; text-underline-offset:2px}
 :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:8px}
 
 /* Header & hero */
-.topbar{max-width:var(--maxw);margin:0 auto;padding:.5rem var(--space-2);display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;border-bottom:1px solid var(--border)}
+.topbar{max-width:var(--maxw);margin:0 auto;padding:.75rem var(--space-2) .9rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;border-bottom:1px solid var(--border);margin-bottom:.5rem}
 .brand{display:flex;gap:.6rem;align-items:center}
 .logo{border-radius:50%}
 .brand-name{font-weight:700}
-.topnav{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.topnav{display:flex;align-items:flex-start;flex-wrap:wrap;column-gap:.6rem;row-gap:.65rem}
+.topnav > *{margin:0}
 .lang-btn,.toggle,.action-btn{border:1px solid var(--border);background:#111a3a;color:var(--text);padding:.5rem .75rem;border-radius:999px;cursor:pointer}
-.select{border:1px solid var(--border);background:#111a3a;color:var(--text);padding:.5rem .75rem;border-radius:8px}
+.select{border:1px solid var(--border);background:#111a3a;color:var(--text);padding:.5rem .75rem;border-radius:999px;display:inline-flex;align-items:center;line-height:1.1}
+.topnav .select{margin-left:.35rem}
 
-.hero{border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--bg-alt),var(--bg))}
+.hero{border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--bg-alt),var(--bg));padding-top:.25rem}
 .hero-content{max-width:var(--maxw);margin:0 auto;padding:var(--space-4) var(--space-2);display:grid;grid-template-columns:1fr 280px;gap:1rem;align-items:start}
 .title{margin:0 0 .25rem;font-size:clamp(2rem,3vw + 1rem,3rem)}
 .subtitle,.date{margin:0;color:var(--muted)}
@@ -224,8 +227,8 @@ h3{margin:.25rem 0 .5rem; font-size:1.1rem}
 .figure-actions{display:flex;gap:.5rem}
 
 /* Tables */
-.table-wrapper{overflow-x:auto}
-.data-table{width:100%;min-width:520px;border:1px solid var(--border);border-radius:12px;border-collapse:separate;border-spacing:0;background:#0f1b3d}
+.table-wrapper{max-width:100%;overflow-x:auto}
+.data-table{width:100%;border:1px solid var(--border);border-radius:12px;border-collapse:separate;border-spacing:0;background:#0f1b3d}
 .data-table th,.data-table td{padding:.8rem 1rem;border-bottom:1px solid var(--border);text-align:left}
 .data-table thead th{background:#0b1440}
 
@@ -281,18 +284,19 @@ h3{margin:.25rem 0 .5rem; font-size:1.1rem}
 
 /* Responsive data tables */
 .data-table{width:100%;table-layout:auto}
-.data-table th,.data-table td{white-space:normal;word-break:break-word}
+.data-table thead th{white-space:nowrap;word-break:normal}
+.data-table td{white-space:normal;word-break:normal;overflow-wrap:anywhere}
 .table-wrap,.table-responsive{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 
 @media (max-width:900px){
   .data-table{table-layout:fixed}
-  .data-table th,.data-table td{word-break:break-word}
+  .data-table td{word-break:break-word}
 }
 
 @media (max-width:640px){
   .back-to-top{bottom:76px}
   .topbar{grid-template-columns:1fr;gap:.5rem;padding:.5rem var(--space-2)}
-  .topnav{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
+  .topnav{display:flex;flex-wrap:wrap;column-gap:.35rem;row-gap:.75rem;align-items:center}
   .lang-btn,.toggle,.select{padding:.35rem .5rem;font-size:.85rem;border-radius:12px}
   .hero-content{padding:var(--space-3) var(--space-2);grid-template-columns:1fr}
   .toc{position:static;margin-top:.75rem;border-radius:14px}
@@ -302,14 +306,16 @@ h3{margin:.25rem 0 .5rem; font-size:1.1rem}
   .compliance{margin:1rem 0 1.25rem;padding:0 var(--space-2)}
   .panel{overflow:visible}
   .data-table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;table-layout:fixed}
-  .data-table th,.data-table td{padding:.6rem .5rem;white-space:normal;word-break:break-word}
+  .data-table th,.data-table td{padding:.6rem .5rem}
+  .data-table thead th{white-space:nowrap;word-break:normal}
   .data-table th{font-size:.9rem}
-  .data-table td{font-size:.9rem}
+  .data-table td{font-size:.9rem;white-space:normal;word-break:normal;overflow-wrap:anywhere}
+  
   .badge{font-size:.85rem;white-space:normal}
   .figure-actions{margin-top:.5rem}
   .chart{max-width:100%;margin:.5rem 0}
   .chart svg{max-width:100%;height:auto}
-  .chart canvas{max-width:100%!important;height:auto!important}
+  .chart canvas{max-width:100%;height:auto}
   .chart .bar{height:18px;margin:.35rem 0;border-radius:4px}
   .chart text,.chart .label,.chart .bar .value{font-size:.72rem}
   /* Charts on mobile: more breathing room and readable labels */
@@ -324,6 +330,11 @@ h3{margin:.25rem 0 .5rem; font-size:1.1rem}
   .cards{grid-template-columns:1fr}
   .grid.two{grid-template-columns:1fr}
   .hero-content{grid-template-columns:1fr}
+}
+
+@media (orientation:landscape) and (max-height:480px){
+  .topbar{padding-bottom:.75rem}
+  .hero{margin-top:.25rem}
 }
 
 /* Section heading accent refinement */
@@ -382,13 +393,13 @@ section>h2::after{
   .figure, .chart, .chart-container { width:100%; }
   .figure svg, .chart svg, .chart-container svg {
     display:block;
-    width:100% !important;
-    height:auto !important;
-    min-height:140px !important;
-    overflow:visible !important;
+    width:100%;
+    height:auto;
+    min-height:140px;
+    overflow:visible;
   }
   /* Common class fallbacks for horizontal-bar containers */
-  .hbars svg, .bars svg, .bar-chart svg { min-height:160px !important; }
+  .hbars svg, .bars svg, .bar-chart svg { min-height:160px; }
   /* Make all SVG text legible on phones */
   .figure svg text,
   .chart svg text,
@@ -396,7 +407,7 @@ section>h2::after{
   .hbars svg text,
   .bars svg text,
   .bar-chart svg text {
-    font-size:0.9rem !important;
+    font-size:0.9rem;
     paint-order:stroke fill;
     stroke:#0b1440;
     stroke-width:2px;
@@ -405,13 +416,13 @@ section>h2::after{
   .figure svg .value,
   .chart svg .value,
   .chart .label-inline {
-    display:none !important;
+    display:none;
   }
 }
 @media (max-width:640px){
   .chart{max-width:100%;margin:.75rem 0 1rem}
   .chart svg{max-width:100%;height:auto;overflow:visible}
-  .chart canvas{max-width:100%!important;height:auto!important}
+  .chart canvas{max-width:100%;height:auto}
   .chart .bar{height:22px;margin:.4rem 0;border-radius:4px}
   .chart text{
     font-size:.85rem;
@@ -423,4 +434,56 @@ section>h2::after{
   .chart .value,
   .chart .bar .value,
   .chart .label-inline{display:none}
+}
+@media (orientation: landscape) and (max-width: 900px){
+  .topbar{padding-bottom:.5rem}
+  .topnav{row-gap:.6rem}
+}
+/* === Topbar alignment & spacing (non-intrusive override) === */
+/* Use grid areas so brand and controls never collide; center baselines. */
+.topbar{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "brand nav";
+  align-items: center;
+  gap: .6rem var(--space-2);
+  padding-bottom: .4rem;
+  margin-bottom: 0; /* avoids visual “leak” into hero on some devices */
+}
+.brand{ grid-area: brand; }
+.topnav{
+  grid-area: nav;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;        /* keeps the Sans select aligned with chips */
+  column-gap:0;
+  row-gap:0;
+}
+/* Fallback spacing instead of flex gap (universal across mobile browsers) */
+.topnav > *{ margin:0 .6rem .15rem 0; }
+/* Make the font dropdown the same “chip” height and stop ad-hoc margins. */
+.select{
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem .75rem;
+  line-height: 1.1;
+}
+.topnav .select{ margin-left: 0; margin-top: 0; }
+
+/* When space is tight (phones / landscape), stack brand above controls. */
+@media (max-width: 640px){
+  .topbar{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "nav";
+    padding-top: .6rem;
+    padding-bottom: .55rem;
+  }
+  .topnav{
+    justify-content:flex-start;
+    column-gap:0; row-gap:0;
+  }
+  .topnav > *{ margin:0 .6rem .25rem 0; }
+  .topnav .select{ margin-top:.4rem; }
 }
