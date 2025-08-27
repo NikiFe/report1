@@ -3,301 +3,271 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FOR METRO Government Survey Report</title>
+  <title>FOR METRO Government – Accessible Survey Report</title>
 
-  <!-- Meta: SEO -->
-  <meta name="description" content="Accessible, multilingual survey report on FOR METRO government satisfaction, demographics, policy areas, and qualitative feedback.">
+  <!-- SEO -->
+  <meta name="description" content="Accessible, multilingual survey report for FOR METRO Government with interactive charts and downloadable data.">
 
-  <!-- Meta: Open Graph / Twitter -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="FOR METRO Government Survey Report">
-  <meta property="og:description" content="Accessible, multilingual survey report on government satisfaction, demographics, policy areas, and feedback.">
-  <meta property="og:url" content="https://nikife.github.io/report1/">
-  <meta property="og:image" content="https://nikife.github.io/report1/og-cover.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FOR METRO Government Survey Report">
-  <meta name="twitter:description" content="Accessible, multilingual survey report on government satisfaction, demographics, policy areas, and feedback.">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://nikife.github.io/report1/">
-
-  <!-- Security: Content Security Policy (tight, no external CDNs) -->
+  <!-- CSP (allow inline styles only; scripts must be from self) -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'none'; base-uri 'self'; upgrade-insecure-requests">
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; upgrade-insecure-requests">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Structured Data (Report) -->
-  <script type="application/ld+json" id="structured-data">
-  {
-    "@context": "https://schema.org",
-    "@type": "Report",
-    "name": "FOR METRO Government Survey Report",
-    "inLanguage": "en",
-    "datePublished": "2025-03-12",
-    "dateCreated": "2025-03-12",
-    "author": {
-      "@type": "Organization",
-      "name": "NZS/NNN Analytics"
-    },
-    "description": "Survey report covering satisfaction, demographics, policy areas and qualitative feedback.",
-    "url": "https://nikife.github.io/report1/"
-  }
-  </script>
 </head>
 <body>
-  <a href="#main" class="skip-link" data-en="Skip to main content" data-cs="Přejít na hlavní obsah">Skip to main content</a>
+  <a href="#main" class="skip-link" data-en="Skip to main content" data-cs="Přejít na hlavní obsah" data-de="Zum Hauptinhalt springen">Skip to main content</a>
+  <div id="live-region" class="sr-only" aria-live="polite"></div>
 
   <header class="site-header" role="banner">
     <div class="topbar">
-      <nav aria-label="Language and preferences">
+      <div class="brand">
+        <img src="logo.png" alt="NZS/NNN Analytics logo" class="logo" width="44" height="44">
+        <span class="brand-name">NZS/NNN Analytics</span>
+      </div>
+      <nav aria-label="Language and preferences" class="topnav">
         <div class="lang-toggle" role="group" aria-label="Language">
           <button class="lang-btn" data-lang="en" aria-pressed="true">English</button>
           <button class="lang-btn" data-lang="cs" aria-pressed="false">Česky</button>
+          <button class="lang-btn" data-lang="de" aria-pressed="false">Deutsch</button>
         </div>
         <div class="prefs">
           <button id="motionToggle" class="toggle" aria-pressed="false"
-                  data-en="Reduce motion: Off" data-cs="Omezit pohyb: Vyp">Reduce motion: Off</button>
+                  data-en="Reduce motion: Off" data-cs="Omezit pohyb: Vyp" data-de="Bewegung reduzieren: Aus">Reduce motion: Off</button>
           <button id="themeToggle" class="toggle" aria-pressed="false"
-                  data-en="High contrast: Off" data-cs="Vysoký kontrast: Vyp">High contrast: Off</button>
+                  data-en="High contrast: Off" data-cs="Vysoký kontrast: Vyp" data-de="Hoher Kontrast: Aus">High contrast: Off</button>
+          <label for="fontSelect" class="sr-only" data-en="Typeface" data-cs="Písmo" data-de="Schriftart">Typeface</label>
+          <select id="fontSelect" class="select">
+            <option value="sans" selected data-en="Sans" data-cs="Bezpatkové" data-de="Serifenlos">Sans</option>
+            <option value="serif" data-en="Serif" data-cs="Patkové" data-de="Serif">Serif</option>
+            <option value="mono" data-en="Mono" data-cs="Monospace" data-de="Monospace">Mono</option>
+          </select>
         </div>
       </nav>
     </div>
 
     <div class="hero" role="img" aria-labelledby="hero-title" aria-describedby="hero-desc">
       <div class="hero-content">
-        <h1 id="hero-title" class="title"
-            data-en="FOR METRO Government"
-            data-cs="Vláda FOR METRO">FOR METRO Government</h1>
-        <p id="hero-desc" class="subtitle"
-           data-en="Comprehensive Survey Analysis"
-           data-cs="Komplexní analýza průzkumu">Comprehensive Survey Analysis</p>
-        <p class="date">
-          <time id="report-date" datetime="2025-03-12">March 12, 2025</time>
-        </p>
-        <p class="sr-only" id="motion-status">Animations enabled</p>
+        <div class="hero-left">
+          <h1 id="hero-title" class="title"
+              data-en="FOR METRO Government"
+              data-cs="Vláda FOR METRO"
+              data-de="Regierung FOR METRO">FOR METRO Government</h1>
+          <p id="hero-desc" class="subtitle"
+             data-en="Comprehensive Survey Analysis"
+             data-cs="Komplexní analýza průzkumu"
+             data-de="Umfassende Umfrageanalyse">Comprehensive Survey Analysis</p>
+          <p class="date"><time id="report-date" datetime="2025-03-12">March 12, 2025</time></p>
+        </div>
+        <nav class="toc" aria-label="Table of contents">
+          <ul>
+            <li><a href="#overview" data-en="Overview" data-cs="Přehled" data-de="Überblick">Overview</a></li>
+            <li><a href="#demographics" data-en="Demographics" data-cs="Demografie" data-de="Demografie">Demographics</a></li>
+            <li><a href="#satisfaction" data-en="Satisfaction" data-cs="Spokojenost" data-de="Zufriedenheit">Satisfaction</a></li>
+            <li><a href="#policy" data-en="Policy Areas" data-cs="Oblasti politiky" data-de="Politikbereiche">Policy Areas</a></li>
+            <li><a href="#feedback" data-en="Feedback" data-cs="Zpětná vazba" data-de="Rückmeldungen">Feedback</a></li>
+            <li><a href="#concerns" data-en="Concerns" data-cs="Obavy" data-de="Bedenken">Concerns</a></li>
+            <li><a href="#debate" data-en="Debate" data-cs="Debata" data-de="Debatte">Debate</a></li>
+            <li><a href="#conclusion" data-en="Conclusion" data-cs="Závěr" data-de="Fazit">Conclusion</a></li>
+          </ul>
+        </nav>
       </div>
-
-      <nav class="toc" aria-label="Table of contents">
-        <ul>
-          <li><a href="#overview" data-en="Overview" data-cs="Přehled">Overview</a></li>
-          <li><a href="#demographics" data-en="Demographics" data-cs="Demografie">Demographics</a></li>
-          <li><a href="#satisfaction" data-en="Satisfaction" data-cs="Spokojenost">Satisfaction</a></li>
-          <li><a href="#policy" data-en="Policy Areas" data-cs="Oblasti politiky">Policy Areas</a></li>
-          <li><a href="#feedback" data-en="Feedback" data-cs="Zpětná vazba">Feedback</a></li>
-          <li><a href="#concerns" data-en="Concerns" data-cs="Obavy">Concerns</a></li>
-          <li><a href="#debate" data-en="Debate" data-cs="Debata">Debate</a></li>
-          <li><a href="#conclusion" data-en="Conclusion" data-cs="Závěr">Conclusion</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
   <main id="main">
     <!-- Overview -->
     <section id="overview" aria-labelledby="overview-title">
-      <h2 id="overview-title" data-en="Survey Overview" data-cs="Přehled průzkumu">Survey Overview</h2>
+      <h2 id="overview-title"
+          data-en="Survey Overview" data-cs="Přehled průzkumu" data-de="Umfrageüberblick">Survey Overview</h2>
 
       <div class="cards" role="list">
         <article class="card" role="listitem" aria-labelledby="c-respondents-title">
           <div class="card-media" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" class="icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.93 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+            <svg viewBox="0 0 24 24" focusable="false" class="icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.93 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
           </div>
-          <h3 id="c-respondents-title" class="card-title" data-en="Respondents" data-cs="Respondenti">Respondents</h3>
-          <p class="card-value" data-value="4">4</p>
+          <h3 id="c-respondents-title" class="card-title" data-en="Respondents" data-cs="Respondenti" data-de="Befragte">Respondents</h3>
+          <p class="card-value">4</p>
         </article>
 
         <article class="card" role="listitem" aria-labelledby="c-avg-title">
           <div class="card-media" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" class="icon"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+            <svg viewBox="0 0 24 24" focusable="false" class="icon"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
-          <h3 id="c-avg-title" class="card-title" data-en="Avg. Satisfaction" data-cs="Průměrná spokojenost">Avg. Satisfaction</h3>
-          <p class="card-value" data-value="5">5.0</p>
+          <h3 id="c-avg-title" class="card-title" data-en="Avg. Satisfaction" data-cs="Průměrná spokojenost" data-de="Durchschn. Zufriedenheit">Avg. Satisfaction</h3>
+          <p class="card-value">5.0</p>
         </article>
 
         <article class="card" role="listitem" aria-labelledby="c-data-title">
           <div class="card-media" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" class="icon"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h2v10H7V7zm4 6h2v4h-2v-4zm4-8h2v12h-2V5z"></path></svg>
+            <svg viewBox="0 0 24 24" focusable="false" class="icon"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h2v10H7V7zm4 6h2v4h-2v-4zm4-8h2v12h-2V5z"/></svg>
           </div>
-          <h3 id="c-data-title" class="card-title" data-en="Data Points" data-cs="Datové body">Data Points</h3>
-          <p class="card-value" data-value="65">65</p>
+          <h3 id="c-data-title" class="card-title" data-en="Data Points" data-cs="Datové body" data-de="Datenpunkte">Data Points</h3>
+          <p class="card-value">65</p>
         </article>
       </div>
     </section>
 
     <!-- Demographics -->
     <section id="demographics" aria-labelledby="demographics-title">
-      <h2 id="demographics-title" data-en="Response Demographics" data-cs="Demografické údaje respondentů">Response Demographics</h2>
+      <div class="section-head">
+        <h2 id="demographics-title" data-en="Response Demographics" data-cs="Demografické údaje respondentů" data-de="Demografische Verteilung">Response Demographics</h2>
+        <div class="figure-actions">
+          <button class="action-btn" data-action="toggle-scale" data-target="demographics-chart"
+                  data-en="Toggle % / count" data-cs="Přepnout % / počet" data-de="% / Anzahl umschalten">Toggle % / count</button>
+          <button class="action-btn" data-action="download-csv" data-target="demographics-figure"
+                  data-en="Download CSV" data-cs="Stáhnout CSV" data-de="CSV herunterladen">Download CSV</button>
+          <button class="action-btn" data-action="download-svg" data-target="demographics-chart"
+                  data-en="Download SVG" data-cs="Stáhnout SVG" data-de="SVG herunterladen">Download SVG</button>
+        </div>
+      </div>
 
-      <figure class="chart-figure">
-        <figcaption id="demographics-desc" data-en="Distribution of respondents by group." data-cs="Rozdělení respondentů podle skupiny.">Distribution of respondents by group.</figcaption>
+      <figure class="chart-figure" id="demographics-figure">
+        <figcaption id="demographics-desc" data-en="Distribution of respondents by group." data-cs="Rozdělení respondentů podle skupiny." data-de="Verteilung der Befragten nach Gruppen.">Distribution of respondents by group.</figcaption>
 
-        <!-- Accessible SVG horizontal bar chart -->
-        <div id="demographics-chart" class="bars" role="img" aria-labelledby="demographics-title" aria-describedby="demographics-desc"></div>
+        <div id="demographics-chart" class="chart" role="img" aria-labelledby="demographics-title" aria-describedby="demographics-desc"></div>
 
-        <!-- Data table (visible to all, source of truth) -->
         <div class="table-wrapper">
-          <table class="data-table">
-            <caption class="sr-only" data-en="Respondent distribution table" data-cs="Tabulka rozdělení respondentů">Respondent distribution table</caption>
+          <table class="data-table" id="demographics-table">
+            <caption class="sr-only" data-en="Respondent distribution table" data-cs="Tabulka rozdělení respondentů" data-de="Tabelle zur Verteilung der Befragten">Respondent distribution table</caption>
             <thead>
               <tr>
-                <th scope="col" data-en="Group" data-cs="Skupina">Group</th>
-                <th scope="col" data-en="Count" data-cs="Počet">Count</th>
-                <th scope="col" data-en="Percent" data-cs="Procenta">Percent</th>
+                <th scope="col" data-en="Group" data-cs="Skupina" data-de="Gruppe">Group</th>
+                <th scope="col" data-en="Count" data-cs="Počet" data-de="Anzahl">Count</th>
+                <th scope="col" data-en="Percent" data-cs="Procenta" data-de="Prozent">Percent</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row" data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</th>
-                <td>3</td>
-                <td>75%</td>
+                <th scope="row" data-en="FOR METRO Members" data-cs="Členové FOR METRO" data-de="FOR METRO Mitglieder">FOR METRO Members</th>
+                <td>3</td><td>75%</td>
               </tr>
               <tr>
-                <th scope="row" data-en="Other Players" data-cs="Ostatní hráči">Other Players</th>
-                <td>1</td>
-                <td>25%</td>
+                <th scope="row" data-en="Other Players" data-cs="Ostatní hráči" data-de="Andere Spieler">Other Players</th>
+                <td>1</td><td>25%</td>
               </tr>
             </tbody>
           </table>
         </div>
       </figure>
-
-      <div class="grid two">
-        <div class="panel">
-          <h3 data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</h3>
-          <p data-en="3 respondents identified as coalition members." data-cs="3 respondenti se identifikovali jako členové koalice.">3 respondents identified as coalition members.</p>
-        </div>
-        <div class="panel">
-          <h3 data-en="Other Players" data-cs="Ostatní hráči">Other Players</h3>
-          <p data-en="1 respondent identified as non-coalition." data-cs="1 respondent se identifikoval jako nečlen koalice.">1 respondent identified as non-coalition.</p>
-        </div>
-      </div>
     </section>
 
     <!-- Satisfaction -->
     <section id="satisfaction" aria-labelledby="satisfaction-title">
-      <h2 id="satisfaction-title" data-en="Government Satisfaction Analysis" data-cs="Analýza spokojenosti s vládou">Government Satisfaction Analysis</h2>
+      <div class="section-head">
+        <h2 id="satisfaction-title" data-en="Government Satisfaction Analysis" data-cs="Analýza spokojenosti s vládou" data-de="Analyse der Regierungszufriedenheit">Government Satisfaction Analysis</h2>
+        <div class="figure-actions">
+          <button class="action-btn" data-action="toggle-scale" data-target="satisfaction-chart"
+                  data-en="Toggle value / %" data-cs="Přepnout hodnota / %" data-de="Wert / % umschalten">Toggle value / %</button>
+          <button class="action-btn" data-action="download-csv" data-target="satisfaction-figure"
+                  data-en="Download CSV" data-cs="Stáhnout CSV" data-de="CSV herunterladen">Download CSV</button>
+          <button class="action-btn" data-action="download-svg" data-target="satisfaction-chart"
+                  data-en="Download SVG" data-cs="Stáhnout SVG" data-de="SVG herunterladen">Download SVG</button>
+        </div>
+      </div>
 
-      <figure class="chart-figure">
+      <figure class="chart-figure" id="satisfaction-figure">
         <figcaption id="satisfaction-desc"
           data-en="Average satisfaction (1–5) across policy areas for members and non-members."
-          data-cs="Průměrná spokojenost (1–5) v oblastech politiky pro členy a nečleny.">
+          data-cs="Průměrná spokojenost (1–5) v oblastech politiky pro členy a nečleny."
+          data-de="Durchschnittliche Zufriedenheit (1–5) nach Politikbereichen für Mitglieder und Nicht-Mitglieder.">
           Average satisfaction (1–5) across policy areas for members and non-members.
         </figcaption>
 
-        <!-- Accessible grouped bars -->
-        <div id="satisfaction-chart" class="bars grouped" role="img"
+        <div id="satisfaction-chart" class="chart" role="img"
              aria-labelledby="satisfaction-title" aria-describedby="satisfaction-desc"></div>
 
-        <!-- Data table as accessible alternative -->
         <div class="table-wrapper">
-          <table class="data-table">
-            <caption class="sr-only" data-en="Policy satisfaction data" data-cs="Data spokojenosti dle oblastí">Policy satisfaction data</caption>
+          <table class="data-table" id="satisfaction-table">
+            <caption class="sr-only" data-en="Policy satisfaction data" data-cs="Data spokojenosti dle oblastí" data-de="Zufriedenheitsdaten nach Bereichen">Policy satisfaction data</caption>
             <thead>
               <tr>
-                <th scope="col" data-en="Policy Area" data-cs="Oblast politiky">Policy Area</th>
-                <th scope="col" data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</th>
-                <th scope="col" data-en="Other Players" data-cs="Ostatní hráči">Other Players</th>
+                <th scope="col" data-en="Policy Area" data-cs="Oblast politiky" data-de="Politikbereich">Policy Area</th>
+                <th scope="col" data-en="FOR METRO Members" data-cs="Členové FOR METRO" data-de="FOR METRO Mitglieder">FOR METRO Members</th>
+                <th scope="col" data-en="Other Players" data-cs="Ostatní hráči" data-de="Andere Spieler">Other Players</th>
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row" data-en="Economy" data-cs="Ekonomika">Economy</th><td>4.33</td><td>2.00</td></tr>
-              <tr><th scope="row" data-en="Transportation" data-cs="Doprava">Transportation</th><td>4.67</td><td>1.00</td></tr>
-              <tr><th scope="row" data-en="Campaign" data-cs="Kampaň">Campaign</th><td>4.00</td><td>1.00</td></tr>
-              <tr><th scope="row" data-en="Proposals" data-cs="Návrhy">Proposals</th><td>4.00</td><td>1.00</td></tr>
+              <tr><th scope="row" data-en="Economy" data-cs="Ekonomika" data-de="Wirtschaft">Economy</th><td>4.33</td><td>2.00</td></tr>
+              <tr><th scope="row" data-en="Transportation" data-cs="Doprava" data-de="Verkehr">Transportation</th><td>4.67</td><td>1.00</td></tr>
+              <tr><th scope="row" data-en="Campaign" data-cs="Kampaň" data-de="Kampagne">Campaign</th><td>4.00</td><td>1.00</td></tr>
+              <tr><th scope="row" data-en="Proposals" data-cs="Návrhy" data-de="Vorschläge">Proposals</th><td>4.00</td><td>1.00</td></tr>
             </tbody>
           </table>
         </div>
       </figure>
-
-      <div class="grid two">
-        <div class="panel">
-          <h3 data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</h3>
-          <p>
-            <span class="rating-value">3.67</span>
-            <span class="sr-only" data-en="out of 5" data-cs="z 5">out of 5</span>
-            <span class="bar meter" aria-hidden="true"><span style="width:73%"></span></span>
-          </p>
-        </div>
-        <div class="panel">
-          <h3 data-en="Other Players" data-cs="Ostatní hráči">Other Players</h3>
-          <p>
-            <span class="rating-value">1.00</span>
-            <span class="sr-only" data-en="out of 5" data-cs="z 5">out of 5</span>
-            <span class="bar meter" aria-hidden="true"><span style="width:20%"></span></span>
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- Policy Areas -->
     <section id="policy" aria-labelledby="policy-title">
-      <h2 id="policy-title" data-en="Policy Area Satisfaction" data-cs="Spokojenost s oblastmi politiky">Policy Area Satisfaction</h2>
+      <h2 id="policy-title" data-en="Policy Area Satisfaction" data-cs="Spokojenost s oblastmi politiky" data-de="Zufriedenheit nach Politikbereichen">Policy Area Satisfaction</h2>
 
       <div class="table-wrapper">
         <table class="data-table policy-table" aria-describedby="policy-note">
-          <caption class="sr-only" data-en="Policy sentiment table" data-cs="Tabulka sentimentu dle oblastí">Policy sentiment table</caption>
+          <caption class="sr-only" data-en="Policy sentiment table" data-cs="Tabulka sentimentu dle oblastí" data-de="Tabelle zur Stimmung je Bereich">Policy sentiment table</caption>
           <thead>
             <tr>
-              <th scope="col" data-en="Policy Area" data-cs="Oblast politiky">Policy Area</th>
-              <th scope="col" data-en="FOR METRO Members" data-cs="Členové FOR METRO">FOR METRO Members</th>
-              <th scope="col" data-en="Other Players" data-cs="Ostatní hráči">Other Players</th>
+              <th scope="col" data-en="Policy Area" data-cs="Oblast politiky" data-de="Politikbereich">Policy Area</th>
+              <th scope="col" data-en="FOR METRO Members" data-cs="Členové FOR METRO" data-de="FOR METRO Mitglieder">FOR METRO Members</th>
+              <th scope="col" data-en="Other Players" data-cs="Ostatní hráči" data-de="Andere Spieler">Other Players</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" data-en="Economy" data-cs="Ekonomika">Economy</th>
-              <td><span class="badge positive" aria-label="Agree">▲ <span data-en="Agree" data-cs="Souhlasím">Agree</span></span></td>
-              <td><span class="badge negative" aria-label="Disagree">▼ <span data-en="Disagree" data-cs="Nesouhlasím">Disagree</span></span></td>
+              <th scope="row" data-en="Economy" data-cs="Ekonomika" data-de="Wirtschaft">Economy</th>
+              <td><span class="badge positive" aria-label="Agree">▲ <span data-en="Agree" data-cs="Souhlasím" data-de="Zustimmung">Agree</span></span></td>
+              <td><span class="badge negative" aria-label="Disagree">▼ <span data-en="Disagree" data-cs="Nesouhlasím" data-de="Ablehnung">Disagree</span></span></td>
             </tr>
             <tr>
-              <th scope="row" data-en="Transportation" data-cs="Doprava">Transportation</th>
-              <td><span class="badge positive" aria-label="Strongly agree">▲▲ <span data-en="Strongly Agree" data-cs="Silně souhlasím">Strongly Agree</span></span></td>
-              <td><span class="badge negative" aria-label="Strongly disagree">▼▼ <span data-en="Strongly Disagree" data-cs="Silně nesouhlasím">Strongly Disagree</span></span></td>
+              <th scope="row" data-en="Transportation" data-cs="Doprava" data-de="Verkehr">Transportation</th>
+              <td><span class="badge positive" aria-label="Strongly agree">▲▲ <span data-en="Strongly Agree" data-cs="Silně souhlasím" data-de="Starke Zustimmung">Strongly Agree</span></span></td>
+              <td><span class="badge negative" aria-label="Strongly disagree">▼▼ <span data-en="Strongly Disagree" data-cs="Silně nesouhlasím" data-de="Starke Ablehnung">Strongly Disagree</span></span></td>
             </tr>
             <tr>
-              <th scope="row" data-en="Campaign" data-cs="Kampaň">Campaign</th>
-              <td><span class="badge positive" aria-label="Agree">▲ <span data-en="Agree" data-cs="Souhlasím">Agree</span></span></td>
-              <td><span class="badge negative" aria-label="Strongly disagree">▼▼ <span data-en="Strongly Disagree" data-cs="Silně nesouhlasím">Strongly Disagree</span></span></td>
+              <th scope="row" data-en="Campaign" data-cs="Kampaň" data-de="Kampagne">Campaign</th>
+              <td><span class="badge positive" aria-label="Agree">▲ <span data-en="Agree" data-cs="Souhlasím" data-de="Zustimmung">Agree</span></span></td>
+              <td><span class="badge negative" aria-label="Strongly disagree">▼▼ <span data-en="Strongly Disagree" data-cs="Silně nesouhlasím" data-de="Starke Ablehnung">Strongly Disagree</span></span></td>
             </tr>
             <tr>
-              <th scope="row" data-en="Proposals" data-cs="Návrhy">Proposals</th>
-              <td><span class="badge positive" aria-label="Agree">▲ <span data-en="Agree" data-cs="Souhlasím">Agree</span></span></td>
-              <td><span class="badge negative" aria-label="Strongly disagree">▼▼ <span data-en="Strongly Disagree" data-cs="Silně nesouhlasím">Strongly Disagree</span></span></td>
+              <th scope="row" data-en="Proposals" data-cs="Návrhy" data-de="Vorschläge">Proposals</th>
+              <td><span class="badge positive" aria-label="Agree">▲ <span data-en="Agree" data-cs="Souhlasím" data-de="Zustimmung">Agree</span></span></td>
+              <td><span class="badge negative" aria-label="Strongly disagree">▼▼ <span data-en="Strongly Disagree" data-cs="Silně nesouhlasím" data-de="Starke Ablehnung">Strongly Disagree</span></span></td>
             </tr>
           </tbody>
         </table>
         <p id="policy-note" class="note" data-en="Arrows indicate sentiment; text labels are provided in addition to color."
-           data-cs="Šipky označují sentiment; kromě barev jsou uvedeny textové štítky.">Arrows indicate sentiment; text labels are provided in addition to color.</p>
+           data-cs="Šipky označují sentiment; kromě barev jsou uvedeny textové štítky."
+           data-de="Pfeile zeigen die Stimmung; neben Farben werden Textlabels angezeigt.">Arrows indicate sentiment; text labels are provided in addition to color.</p>
       </div>
     </section>
 
     <!-- Feedback -->
     <section id="feedback" aria-labelledby="feedback-title">
-      <h2 id="feedback-title" data-en="Qualitative Feedback" data-cs="Kvalitativní zpětná vazba">Qualitative Feedback</h2>
-
+      <h2 id="feedback-title" data-en="Qualitative Feedback" data-cs="Kvalitativní zpětná vazba" data-de="Qualitative Rückmeldungen">Qualitative Feedback</h2>
       <div class="grid two feedback-columns">
         <div class="panel">
-          <h3 data-en="FOR METRO Members' Perspective" data-cs="Perspektiva členů FOR METRO">FOR METRO Members' Perspective</h3>
+          <h3 data-en="FOR METRO Members' Perspective" data-cs="Perspektiva členů FOR METRO" data-de="Perspektive der FOR METRO Mitglieder">FOR METRO Members' Perspective</h3>
           <ul class="quotes">
-            <li>&ldquo;<span data-en="Excellent government, everyone is satisfied" data-cs="Je to parádní, všichni jsou spokojeni">Excellent government, everyone is satisfied</span>&rdquo;</li>
-            <li>&ldquo;<span data-en="Important measures for good living" data-cs="Dělají se důležitá opatření na dobré živobytí">Important measures for good living</span>&rdquo;</li>
-            <li>&ldquo;<span data-en="Very active server with high political engagement" data-cs="Server je velice aktivní, hodně hráčů se angažuje v politice">Very active server with high political engagement</span>&rdquo;</li>
+            <li>&ldquo;<span data-en="Excellent government, everyone is satisfied" data-cs="Je to parádní, všichni jsou spokojeni" data-de="Ausgezeichnete Regierung, alle sind zufrieden">Excellent government, everyone is satisfied</span>&rdquo;</li>
+            <li>&ldquo;<span data-en="Important measures for good living" data-cs="Dělají se důležitá opatření na dobré živobytí" data-de="Wichtige Maßnahmen für gutes Leben">Important measures for good living</span>&rdquo;</li>
+            <li>&ldquo;<span data-en="Very active server with high political engagement" data-cs="Server je velice aktivní, hodně hráčů se angažuje v politice" data-de="Sehr aktiver Server mit hohem politischem Engagement">Very active server with high political engagement</span>&rdquo;</li>
             <li>&ldquo;Gut&rdquo;</li>
           </ul>
         </div>
         <div class="panel">
-          <h3 data-en="Non-FOR METRO Perspective" data-cs="Perspektiva nečlenů FOR METRO">Non-FOR METRO Perspective</h3>
+          <h3 data-en="Non-FOR METRO Perspective" data-cs="Perspektiva nečlenů FOR METRO" data-de="Perspektive der Nicht-Mitglieder">Non-FOR METRO Perspective</h3>
           <ul class="quotes">
             <li>&ldquo;<span data-en="Conservative populism with aggressive rhetoric toward opposition"
-                      data-cs="Tato vláda staví své konání na principech konzervativního populismu. Rétorika je agresivní vůči opozici">Conservative populism with aggressive rhetoric toward opposition</span>&rdquo;</li>
+                      data-cs="Tato vláda staví své konání na principech konzervativního populismu. Rétorika je agresivní vůči opozici"
+                      data-de="Konservativer Populismus mit aggressiver Rhetorik gegenüber der Opposition">Conservative populism with aggressive rhetoric toward opposition</span>&rdquo;</li>
             <li>&ldquo;<span data-en="Discrimination against LGBTQ+ community"
-                      data-cs="Svou rétorikou diskriminuje LGBTQ+ menšinu na serveru">Discrimination against LGBTQ+ community</span>&rdquo;</li>
+                      data-cs="Svou rétorikou diskriminuje LGBTQ+ menšinu na serveru"
+                      data-de="Diskriminierung der LGBTQ+ Community durch die Rhetorik">Discrimination against LGBTQ+ community</span>&rdquo;</li>
             <li>&ldquo;<span data-en="Economic decisions not supported by expert analysis"
-                      data-cs="Přijímá špatná rozhodnutí v oblasti ekonomiky, která nejsou podložena odbornými analýzami">Economic decisions not supported by expert analysis</span>&rdquo;</li>
+                      data-cs="Přijímá špatná rozhodnutí v oblasti ekonomiky, která nejsou podložena odbornými analýzami"
+                      data-de="Wirtschaftliche Entscheidungen nicht durch Expertenanalysen gestützt">Economic decisions not supported by expert analysis</span>&rdquo;</li>
             <li>&ldquo;<span data-en="Metro development not progressing as promised"
-                      data-cs="Rozvoj metra neprobíhá v takovém měřítku, jak bylo slibováno">Metro development not progressing as promised</span>&rdquo;</li>
+                      data-cs="Rozvoj metra neprobíhá v takovém měřítku, jak bylo slibováno"
+                      data-de="U-Bahn-Entwicklung schreitet nicht wie versprochen voran">Metro development not progressing as promised</span>&rdquo;</li>
           </ul>
         </div>
       </div>
@@ -305,41 +275,47 @@
 
     <!-- Concerns -->
     <section id="concerns" aria-labelledby="concerns-title">
-      <h2 id="concerns-title" data-en="Areas of Concern" data-cs="Problematické oblasti">Areas of Concern</h2>
+      <h2 id="concerns-title" data-en="Areas of Concern" data-cs="Problematické oblasti" data-de="Problembereiche">Areas of Concern</h2>
 
       <ul class="concern-list">
-        <li><span class="concern-icon" aria-hidden="true">💬</span> <span data-en="Better communication with experts and opposition" data-cs="Lepší komunikace s experty a opozicí">Better communication with experts and opposition</span></li>
-        <li><span class="concern-icon" aria-hidden="true">🧠</span> <span data-en="Less idealism in governance" data-cs="Méně idealismu ve vládnutí">Less idealism in governance</span></li>
-        <li><span class="concern-icon" aria-hidden="true">🌈</span> <span data-en="More progressive values" data-cs="Více progresivních hodnot">More progressive values</span></li>
-        <li><span class="concern-icon" aria-hidden="true">📊</span> <span data-en="Evidence-based decision-making" data-cs="Rozhodování založené na důkazech">Evidence-based decision-making</span></li>
-        <li><span class="concern-icon" aria-hidden="true">⚖️</span> <span data-en="Prevention of court corruption" data-cs="Prevence korupce soudů">Prevention of court corruption</span></li>
-        <li><span class="concern-icon" aria-hidden="true">🛡️</span> <span data-en="Avoiding system abuse for political gain" data-cs="Zamezení zneužívání systému pro politický zisk">Avoiding system abuse for political gain</span></li>
+        <li><svg class="concern-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+          <span data-en="Better communication with experts and opposition" data-cs="Lepší komunikace s experty a opozicí" data-de="Bessere Kommunikation mit Experten und Opposition">Better communication with experts and opposition</span></li>
+        <li><svg class="concern-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/></svg>
+          <span data-en="Less idealism in governance" data-cs="Méně idealismu ve vládnutí" data-de="Weniger Idealismus in der Regierungsführung">Less idealism in governance</span></li>
+        <li><svg class="concern-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20"/></svg>
+          <span data-en="More progressive values" data-cs="Více progresivních hodnot" data-de="Mehr progressive Werte">More progressive values</span></li>
+        <li><svg class="concern-svg" viewBox="0 0 24 24" aria-hidden="true"><polyline points="3,18 9,12 13,16 21,6"/></svg>
+          <span data-en="Evidence-based decision-making" data-cs="Rozhodování založené na důkazech" data-de="Evidenzbasierte Entscheidungen">Evidence-based decision-making</span></li>
+        <li><svg class="concern-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V8l8-6 8 6v12H4z"/></svg>
+          <span data-en="Prevention of court corruption" data-cs="Prevence korupce soudů" data-de="Verhinderung von Korruption in Gerichten">Prevention of court corruption</span></li>
+        <li><svg class="concern-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h16v6H4z"/></svg>
+          <span data-en="Avoiding system abuse for political gain" data-cs="Zamezení zneužívání systému pro politický zisk" data-de="Vermeidung von Systemmissbrauch zu politischem Vorteil">Avoiding system abuse for political gain</span></li>
       </ul>
     </section>
 
     <!-- Debate -->
     <section id="debate" aria-labelledby="debate-title">
-      <h2 id="debate-title" data-en="Debate Interest" data-cs="Zájem o debatu">Debate Interest</h2>
+      <h2 id="debate-title" data-en="Debate Interest" data-cs="Zájem o debatu" data-de="Interesse an Debatte">Debate Interest</h2>
 
       <div class="grid two">
         <div class="panel">
-          <h3 data-en="FOR METRO" data-cs="FOR METRO">FOR METRO</h3>
+          <h3 data-en="FOR METRO" data-cs="FOR METRO" data-de="FOR METRO">FOR METRO</h3>
           <ul>
-            <li data-en="Metro construction" data-cs="Stavba metra">Metro construction</li>
-            <li data-en="Justice system" data-cs="Justiční systém">Justice system</li>
-            <li data-en="New players" data-cs="Noví hráči">New players</li>
+            <li data-en="Metro construction" data-cs="Stavba metra" data-de="U-Bahn-Bau">Metro construction</li>
+            <li data-en="Justice system" data-cs="Justiční systém" data-de="Justizsystem">Justice system</li>
+            <li data-en="New players" data-cs="Noví hráči" data-de="Neue Spieler">New players</li>
           </ul>
         </div>
         <div class="panel">
-          <h3 data-en="Non-FOR METRO" data-cs="Nečlenové FOR METRO">Non-FOR METRO</h3>
+          <h3 data-en="Non-FOR METRO" data-cs="Nečlenové FOR METRO" data-de="Nicht-FOR METRO">Non-FOR METRO</h3>
           <ul>
-            <li data-en="LGBTQ+ issues" data-cs="LGBTQ+ problematika">LGBTQ+ issues</li>
-            <li data-en="Government economic policies" data-cs="Vládní ekonomická politika">Government economic policies</li>
-            <li data-en="Transportation policies" data-cs="Dopravní politika">Transportation policies</li>
-            <li data-en="Corruption" data-cs="Korupce">Corruption</li>
-            <li data-en="Court functioning" data-cs="Fungování soudů">Court functioning</li>
-            <li data-en="Freedom and rights" data-cs="Svoboda a práva">Freedom and rights</li>
-            <li data-en="Regional governance" data-cs="Regionální správa">Regional governance</li>
+            <li data-en="LGBTQ+ issues" data-cs="LGBTQ+ problematika" data-de="LGBTQ+ Themen">LGBTQ+ issues</li>
+            <li data-en="Government economic policies" data-cs="Vládní ekonomická politika" data-de="Wirtschaftspolitik der Regierung">Government economic policies</li>
+            <li data-en="Transportation policies" data-cs="Dopravní politika" data-de="Verkehrspolitik">Transportation policies</li>
+            <li data-en="Corruption" data-cs="Korupce" data-de="Korruption">Corruption</li>
+            <li data-en="Court functioning" data-cs="Fungování soudů" data-de="Funktionsweise der Gerichte">Court functioning</li>
+            <li data-en="Freedom and rights" data-cs="Svoboda a práva" data-de="Freiheit und Rechte">Freedom and rights</li>
+            <li data-en="Regional governance" data-cs="Regionální správa" data-de="Regionale Verwaltung">Regional governance</li>
           </ul>
         </div>
       </div>
@@ -347,9 +323,10 @@
 
     <!-- Conclusion -->
     <section id="conclusion" aria-labelledby="conclusion-title">
-      <h2 id="conclusion-title" data-en="Conclusion" data-cs="Závěr">Conclusion</h2>
+      <h2 id="conclusion-title" data-en="Conclusion" data-cs="Závěr" data-de="Fazit">Conclusion</h2>
       <p data-en="The survey reveals a significant divide in perceptions of the FOR METRO government. While coalition members express high satisfaction across all metrics, the non-coalition respondent has substantial concerns about governance style, policy decisions, and potential rights restrictions. This suggests the need for improved dialogue between government and opposition to address these divergent viewpoints."
-         data-cs="Průzkum odhaluje významný rozdíl ve vnímání vlády FOR METRO. Zatímco členové koalice vyjadřují vysokou spokojenost ve všech metrikách, respondent mimo koalici má značné obavy ohledně stylu vládnutí, politických rozhodnutí a potenciálních omezení práv. To naznačuje potřebu zlepšeného dialogu mezi vládou a opozicí k řešení těchto rozdílných pohledů.">
+         data-cs="Průzkum odhaluje významný rozdíl ve vnímání vlády FOR METRO. Zatímco členové koalice vyjadřují vysokou spokojenost ve všech metrikách, respondent mimo koalici má značné obavy ohledně stylu vládnutí, politických rozhodnutí a potenciálních omezení práv. To naznačuje potřebu zlepšeného dialogu mezi vládou a opozicí k řešení těchto rozdílných pohledů."
+         data-de="Die Umfrage zeigt eine deutliche Kluft in der Wahrnehmung der Regierung FOR METRO. Während Koalitionsmitglieder durchweg hohe Zufriedenheit äußern, hat der nicht-koalitionäre Befragte erhebliche Bedenken hinsichtlich Regierungsstil, politischen Entscheidungen und möglichen Freiheitsbeschränkungen. Dies spricht für einen verbesserten Dialog zwischen Regierung und Opposition.">
         The survey reveals a significant divide in perceptions of the FOR METRO government. While coalition members express high satisfaction across all metrics, the non-coalition respondent has substantial concerns about governance style, policy decisions, and potential rights restrictions. This suggests the need for improved dialogue between government and opposition to address these divergent viewpoints.
       </p>
     </section>
@@ -358,25 +335,28 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div>
-        <p data-en="Survey conducted on" data-cs="Průzkum proveden">Survey conducted on</p>
+        <p data-en="Survey conducted on" data-cs="Průzkum proveden" data-de="Umfrage durchgeführt am">Survey conducted on</p>
         <p><time datetime="2025-03-12">March 12, 2025</time></p>
       </div>
       <div>
-        <p data-en="Report generated by NZS/NNN Analytics" data-cs="Zpráva vygenerována NZS/NNN Analytics">Report generated by NZS/NNN Analytics</p>
-        <p class="muted"><span data-en="Generated on:" data-cs="Vygenerováno:">Generated on:</span> <time id="generated-on" aria-live="polite"></time></p>
+        <p data-en="Report generated by NZS/NNN Analytics" data-cs="Zpráva vygenerována NZS/NNN Analytics" data-de="Bericht erstellt von NZS/NNN Analytics">Report generated by NZS/NNN Analytics</p>
+        <p class="muted"><span data-en="Generated on:" data-cs="Vygenerováno:" data-de="Erstellt am:">Generated on:</span> <time id="generated-on" aria-live="polite"></time></p>
       </div>
       <div>
         <nav aria-label="Legal">
           <ul class="footer-links">
-            <li><a href="privacy.html" data-en="Privacy" data-cs="Soukromí">Privacy</a></li>
-            <li><a href="sitemap.xml" data-en="Sitemap" data-cs="Mapa stránek">Sitemap</a></li>
+            <li><a href="privacy.html" data-en="Privacy" data-cs="Soukromí" data-de="Datenschutz">Privacy</a></li>
+            <li><a href="accessibility.html" data-en="Accessibility" data-cs="Přístupnost" data-de="Barrierefreiheit">Accessibility</a></li>
           </ul>
         </nav>
       </div>
     </div>
+    <div class="compliance"><a class="wcag-badge" href="accessibility.html" aria-label="Accessibility statement and WCAG conformance">WCAG 2.1 AA</a></div>
   </footer>
 
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+  <button id="backToTop" class="back-to-top" aria-label="Scroll back to top of page">↑</button>
+
+  <div id="tooltip" class="tooltip" role="status" aria-hidden="true"></div>
 
   <script src="script.js" defer></script>
 </body>
